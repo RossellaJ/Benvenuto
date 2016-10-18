@@ -32,8 +32,8 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+		PrintWriter writer = response.getWriter();
+		writer.print("Benvenuto");
 	}
 	
 	
@@ -45,19 +45,18 @@ public class Servlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		PrintWriter writer = response.getWriter();//metodo che f tornare quello che scrivo
 		
-		if(!nome.isEmpty() && nome!=null){
-			
+		if(!nome.isEmpty() && nome!=null){			
 		session.setAttribute("usernameSalvato", nome);
+		}
 		
-			if(password.equals("123")){
-			writer.println("Registrazione avvenuta correttamente! Benvenuto/a "+ nome);
-			}else{
-			response.sendRedirect("login2.html");
+		if(password.equals("123")){
+			response.sendRedirect("Benvenuto.html");
+		
 		}
 		
 	}
-	}
 }
+
 		
 		
 
